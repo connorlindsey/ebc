@@ -2,11 +2,10 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 import Button from "../components/button"
 
-class Blog extends React.Component {
+class Education extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -14,7 +13,6 @@ class Blog extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
         <div style={{ margin: "20px 0 40px" }}>
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
@@ -50,7 +48,7 @@ class Blog extends React.Component {
   }
 }
 
-export default Blog
+export default Education
 
 export const pageQuery = graphql`
   query {
