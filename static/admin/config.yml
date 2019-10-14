@@ -16,3 +16,21 @@ collections:
       - { name: title, label: Title }
       - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }
+  - name: leadership
+    label: Leadership
+    folder: content/leadership
+    create: true
+    fields: 
+      - { name: name, label: Name }
+      - { name: position, label: Position }
+      - { name: linkedin, label: LinkedIn }
+      - { name: photo, label: Photo, widget: image }
+  - name: education
+    label: Education
+    folder: content/education
+    create: true
+    fields:
+      - { name: path, label: Path }
+      - { name: title, label: Title }
+      - { name: description, label: Description }
+      - { name: body, label: Body, widget: markdown }
