@@ -8,10 +8,10 @@ class Layout extends React.Component {
   render() {
     const { location, title, children } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
-    const blogPath = `${__PATH_PREFIX__}/blog/`
+    const postsPath = `${__PATH_PREFIX__}/posts/`
     let header
 
-    if (location.pathname === rootPath || location.pathname === blogPath) {
+    if (location.pathname === rootPath || location.pathname === postsPath) {
       header = (
         <h1
           style={{
@@ -26,7 +26,7 @@ class Layout extends React.Component {
               textDecoration: `none`,
               color: `inherit`,
             }}
-            to={location.pathname === blogPath ? `/blog/` : `/`}
+            to={location.pathname === postsPath ? `/posts/` : `/`}
           >
             {title}
           </Link>
@@ -34,19 +34,14 @@ class Layout extends React.Component {
       )
     } else {
       header = (
-        <h3
-          style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
-          }}
-        >
+        <h3>
           <Link
             style={{
               boxShadow: `none`,
               textDecoration: `none`,
               color: `inherit`,
             }}
-            to={`/blog/`}
+            to={`/posts/`}
           >
             {title}
           </Link>
@@ -66,11 +61,7 @@ class Layout extends React.Component {
           <header>{header}</header>
           <main>{children}</main>
         </div>
-        <Footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </Footer>
+        <Footer>EBC © {new Date().getFullYear()}</Footer>
       </Wrapper>
     )
   }

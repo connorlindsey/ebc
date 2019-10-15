@@ -11,7 +11,7 @@ class IndexPage extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <img style={{ margin: 0 }} src="./assets/EB.jpg" alt="Engineering Building at BYU" />
-        <Link to="/blog/">
+        <Link to="/posts/">
           <Button marginTop="35px">Recent Posts</Button>
         </Link>
       </Layout>
