@@ -5,12 +5,13 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   const postTemplate = path.resolve(`./src/templates/post.js`)
+  // Query for posts and articles
   return graphql(
     `
       {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
+        allMarkdownRemark( 
+          filter: { sourceInstanceName: {eq:"posts"}}
+          sort: { fields: [frontmatter___date], order: DESC } 
         ) {
           edges {
             node {

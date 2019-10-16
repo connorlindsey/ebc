@@ -25,7 +25,7 @@ class Education extends React.Component {
                 >
                   <Link
                     style={{ boxShadow: `none` }}
-                    to={`posts${node.fields.slug}`}
+                    to={`/posts${node.fields.slug}`}
                   >
                     {title}
                   </Link>
@@ -57,7 +57,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+        filter: { fileAbsolutePath: {regex: "/posts/"}}
+        sort: { fields: [frontmatter___date], order: DESC }
+      ) {
       edges {
         node {
           excerpt
@@ -71,6 +74,6 @@ export const pageQuery = graphql`
           }
         }
       }
-    }
+    } 
   }
 `
