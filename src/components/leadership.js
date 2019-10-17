@@ -24,7 +24,6 @@ const useLeadershipData = () => {
 
 function Leadership() {
   const data = useLeadershipData()
-  console.log(data[0].node);
   return (
     <div>
       <h3>Check out our team</h3>
