@@ -1,7 +1,7 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-exports.createPages = ({ graphql, actions, reporter }) => {
+exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   const postTemplate = path.resolve(`./src/templates/post.js`)
@@ -46,11 +46,9 @@ exports.createPages = ({ graphql, actions, reporter }) => {
 
     // Create posts pages.
     const posts = result.data.posts.edges
-    reporter.log(`Node: ${posts.length}`)
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node
-      reporter.log(`Creating a post: ${post.node.fields.slug}`)
 
       createPage({
         path: `posts${post.node.fields.slug}`,
@@ -65,9 +63,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
 
     // Create education articles
     const articles = result.data.articles.edges
-    reporter.log(`Articles: ${articles.length}`)
     articles.forEach(article => {
-      reporter.log(`Creating an article: ${article.node.fields.slug}`)
       createPage({
         path: `${article.node.fields.slug}`,
         component: articleTemplate,
