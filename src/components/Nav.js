@@ -1,69 +1,65 @@
 import React from "react";
-import { Flex, Link, Text, Box } from "rebass";
-import { CallToAction } from "react-landing-page";
+import { Link } from "gatsby"
+import styled from "styled-components"
+
+const Nav = styled.nav`
+  background-color: ${props => props.theme.grey["800"]};
+  color: #FFF;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: .5rem 1rem;
+`
+
+const Spacer = styled.div`
+  margin: 0 auto;
+`
+
+const NavLink = styled.a`
+  margin: 0 .5rem;
+  &:hover {
+    color: ${props => props.theme.primary["500"]};
+  }
+`
+
+const CallToAction = styled.a`
+  display: block;
+  border: none;
+  text-align: center;
+  padding: 8px 25px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 18px;
+  background: ${props => props.theme.primary["500"]};
+  margin: 0 .5rem;
+  color: #FFF;
+  transition: .2s all ease;
+
+  &:hover {
+    background: ${props => props.theme.primary["400"]};
+  }
+`
 
 const NavBar = () => (
-  <Flex px={2} color="white" bg="#2F3131" alignItems="center">
-    <Text p={2} fontWeight="bold">
+  <Nav px={2} color="white" bg="#2F3131" alignItems="center">
+    <Link to="/">
       Engineers in Business
-    </Text>
-    <Box mx="auto" />
-    <Link
-      variant="nav"
-      href="#about"
-      sx={{
-        display: "inline-block",
-        fontWeight: "bold",
-        px: 2,
-        py: 1,
-        color: "inherit"
-      }}
-    >
-      About
     </Link>
-    <Link
-      variant="nav"
-      href="#leadership"
-      sx={{
-        display: "inline-block",
-        fontWeight: "bold",
-        px: 2,
-        py: 1,
-        color: "inherit"
-      }}
-    >
-      Leadership
-    </Link>
-    <Link
-      variant="nav"
-      href="#blog"
-      sx={{
-        display: "inline-block",
-        fontWeight: "bold",
-        px: 2,
-        py: 1,
-        color: "inherit"
-      }}
-    >
-      Blog
-    </Link>
-    <Link
-      variant="nav"
-      href="#calendar"
-      sx={{
-        display: "inline-block",
-        fontWeight: "bold",
-        px: 2,
-        py: 1,
-        color: "inherit"
-      }}
-    >
-      Calendar
-    </Link>
-    <CallToAction href="/join" mt={3}>
+    <Spacer />
+    <NavLink href="#about">About</NavLink>
+    <NavLink href="#leadership">Leadership</NavLink>
+    <NavLink href="#learn">Learn</NavLink>
+    <NavLink href="#news">News</NavLink>
+    <NavLink href="#events">Events</NavLink>
+    <CallToAction href="/join">
       Join
     </CallToAction>
-  </Flex>
+  </Nav>
 );
 
 export default NavBar;

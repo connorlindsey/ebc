@@ -1,7 +1,7 @@
 import Typography from "typography"
 
 const typography = new Typography({
-  baseFontSize: "16px",
+  baseFontSize: "18px",
   baseLineHeight: 1.5,
   scaleRatio: 3.2,
   googleFonts: [{
@@ -22,14 +22,7 @@ const typography = new Typography({
   ],
   blockmarginBottom: '16px',
   headerGrayHue: 120,
-  bodyFontFamily: ["Source Sans Pro", "sans-serif"],
-  /*
-  overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({
-    h1: {
-      ... stuff
-    }
-  })
-  */
+  bodyFontFamily: ["Source Sans Pro", "sans-serif"]
 })
 
 export default typography

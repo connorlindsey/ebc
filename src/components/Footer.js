@@ -1,33 +1,17 @@
 import React from "react";
-import { Link } from "rebass";
-import { Section } from "react-landing-page";
+import styled from "styled-components"
+
+const StyledFooter = styled.footer`
+  background-color: ${props => props.theme.grey["800"]};
+  color: #FFF;
+  padding: 1.5rem 1rem 1rem;
+  text-align: center;
+`
 
 const Footer = () => (
-  <Section bg="#2F3131" color="white">
-    <Link
-      children="Link 1"
-      href="#"
-      sx={{
-        display: "inline-block",
-        fontWeight: "bold",
-        px: 2,
-        py: 1,
-        color: "inherit"
-      }}
-    />
-    <Link
-      children="Link 2"
-      href="#"
-      sx={{
-        display: "inline-block",
-        fontWeight: "bold",
-        px: 2,
-        py: 1,
-        color: "inherit"
-      }}
-    />
-    © EBC, 2019
-  </Section>
+  <StyledFooter>
+    © EBC 2019
+  </StyledFooter>
 );
 
 export default Footer;

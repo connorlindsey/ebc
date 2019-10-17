@@ -16,9 +16,9 @@ const Section = styled.section`
 const BlogGrid = styled.div`
   width: 95%;
   margin: 2rem auto;
-  max-width: 800px;
+  max-width: 900px;
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
   grid-gap: 1rem;
 `
 
@@ -53,9 +53,8 @@ const usePostData = () => {
 
 const PostsSection = () => {
   const data = usePostData()
-  console.log(data[0])
   return (
-    <Section>
+    <Section id="news">
       <h2>Club News</h2>
       <BlogGrid>
         {data.map(item => (

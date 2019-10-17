@@ -34,7 +34,7 @@ const useLeadershipData = () => {
 const Leadership = () => {
   const data = useLeadershipData()
   return (
-    <Section>
+    <Section id="leadership">
       <Flex justifyContent="space-around">
         {data.map(item => (
           <Contributor

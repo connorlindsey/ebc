@@ -4,7 +4,7 @@ import { Tiles } from "@rebass/layout";
 import { Section } from "react-landing-page";
 
 const About = () => (
-  <Section heading="About" subhead="What we do" bg="#F8F1E5">
+  <Section heading="About" bg="#F8F1E5" id="about">
     This is the about section of the landing page.
     <Heading textAlign="center" marginTop={20}>
       Where we work
