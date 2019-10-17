@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import Button from "../components/button"
 import Leadership from "../components/leadership"
+import Calendar from "../components/calendar"
 
 class IndexPage extends React.Component {
   render() {
@@ -19,6 +20,7 @@ class IndexPage extends React.Component {
         <Link to="/education/">
           <Button marginTop="35px">Education Corner</Button>
         </Link>
+        <Calendar />
       </Layout>
     )
   }
