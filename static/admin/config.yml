@@ -5,6 +5,9 @@ backend:
 media_folder: static/assets
 public_folder: assets
 
+# Options
+# name, identifier_field, label (for UI)
+# description, extension
 collections:
   - name: posts
     label: Posts
@@ -20,6 +23,8 @@ collections:
     label: Leadership
     folder: content/leadership
     create: true
+    identifier_field: name
+    extension: json
     fields: 
       - { name: name, label: Name }
       - { name: position, label: Position }
