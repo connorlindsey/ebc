@@ -33,7 +33,7 @@ function Leadership() {
             {l.node.name}
             <a href={l.node.linkedin}>LinkedIn</a>
             {l.node.position}
-            <img src={l.node.photo} alt="Profile picture"></img>
+            <img src={l.node.photo} alt="Leadership member"></img>
           </li>
         ))}
       </ul>
