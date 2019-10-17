@@ -41,7 +41,7 @@ class Layout extends React.Component {
               textDecoration: `none`,
               color: `inherit`,
             }}
-            to={`/posts/`}
+            to={`/`}
           >
             {title}
           </Link>

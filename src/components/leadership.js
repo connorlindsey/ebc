@@ -1,5 +1,14 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import { Link, Flex } from "rebass"
+import { Contributor } from "react-landing-page"
+import styled from "styled-components"
+
+const Section = styled.section`
+  background-color: ${props => props.theme.grey["800"]};
+  color: #FFF;
+  padding: 3rem 2rem;
+`
 
 const useLeadershipData = () => {
   const data = useStaticQuery(
@@ -22,22 +31,34 @@ const useLeadershipData = () => {
   return data.allLeadershipJson.edges
 }
 
-function Leadership() {
+const Leadership = () => {
   const data = useLeadershipData()
   return (
-    <div>
-      <h3>Check out our team</h3>
-      <ul>
-        {data.map(l => (
-          <li key={l.node.id}>
-            {l.node.name}
-            <a href={l.node.linkedin}>LinkedIn</a>
-            {l.node.position}
-            <img src={l.node.photo} alt="Leadership member"></img>
-          </li>
+    <Section>
+      <Flex justifyContent="space-around">
+        {data.map(item => (
+          <Contributor
+            fullName={item.node.name}
+            title={item.node.position}
+            avatar={item.node.photo}
+            key={item.node.id}
+          >
+            <Link
+              href={item.node.linkedin}
+              sx={{
+                display: "inline-block",
+                fontWeight: "bold",
+                px: 2,
+                py: 1,
+                color: "inherit",
+              }}
+            >
+              LinkedIn
+            </Link>
+          </Contributor>
         ))}
-      </ul>
-    </div>
+      </Flex>
+    </Section>
   )
 }
 
