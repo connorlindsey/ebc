@@ -4,29 +4,42 @@ import { graphql, useStaticQuery } from "gatsby"
 const useLeadershipData = () => {
   const data = useStaticQuery(
     graphql`
-    query LeadershipQuery {
-      allFile (filter: {sourceInstanceName: {eq: "leadership"}}) {
-        edges {
-          node {
-            id
-            name
+      query LeadershipQuery {
+        allLeadershipJson {
+          edges {
+            node {
+              id
+              name
+              photo
+              position
+              linkedin
+            }
           }
         }
       }
-    }`
+    `
   )
-  return data.allFile.edges
+  return data.allLeadershipJson.edges
 }
 
-function leadership() {
-  const leadership = useLeadershipData();
-  console.log("Data: ", leadership)
+function Leadership() {
+  const data = useLeadershipData()
+  console.log(data[0].node);
   return (
     <div>
       <h3>Check out our team</h3>
-      <ul>{leadership.map(l => <li key={l.node.name}>{l.node.name}</li>)}</ul>
+      <ul>
+        {data.map(l => (
+          <li key={l.node.id}>
+            {l.node.name}
+            <a href={l.node.linkedin}>LinkedIn</a>
+            {l.node.position}
+            <img src={l.node.photo} alt="Profile picture"></img>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
 
-export default leadership
+export default Leadership

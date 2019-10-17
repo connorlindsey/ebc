@@ -16,6 +16,9 @@ class IndexPage extends React.Component {
         <Link to="/posts/">
           <Button marginTop="35px">Recent Posts</Button>
         </Link>
+        <Link to="/education/">
+          <Button marginTop="35px">Education Corner</Button>
+        </Link>
       </Layout>
     )
   }
