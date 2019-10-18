@@ -60,7 +60,7 @@ const PostsSection = () => {
         {data.map(item => (
           <Card width={[256, 320]} mx="auto" key={item.node.id}>
             <Link to={`/posts${item.node.fields.slug}`}>
-              <h3>{item.node.frontmatter.title} hey there</h3>
+              <h3>{item.node.frontmatter.title}</h3>
             </Link>
             <p>{item.node.frontmatter.date}</p>
             <p>{item.node.excerpt}</p>

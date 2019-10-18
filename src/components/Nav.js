@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 const Nav = styled.nav`
-  background-color: ${props => props.theme.grey["800"]};
+  background-color: ${props => props.theme.grey["900"]};
   color: #FFF;
   display: flex;
   flex-direction: row;
@@ -22,7 +22,7 @@ const Spacer = styled.div`
 const NavLink = styled.a`
   margin: 0 .5rem;
   &:hover {
-    color: ${props => props.theme.primary["500"]};
+    color: ${props => props.theme.primary["300"]};
   }
 `
 
@@ -45,18 +45,23 @@ const CallToAction = styled.a`
   }
 `
 
+const HomeLink = styled(Link)`
+  font-size: 24px;
+  font-weight: 500;
+`
+
 const NavBar = () => (
-  <Nav px={2} color="white" bg="#2F3131" alignItems="center">
-    <Link to="/">
+  <Nav>
+    <HomeLink to="/">
       Engineers in Business
-    </Link>
+    </HomeLink>
     <Spacer />
     <NavLink href="#about">About</NavLink>
     <NavLink href="#leadership">Leadership</NavLink>
     <NavLink href="#learn">Learn</NavLink>
     <NavLink href="#news">News</NavLink>
     <NavLink href="#events">Events</NavLink>
-    <CallToAction href="/join">
+    <CallToAction href="https://clubs.byu.edu/clubs#/embc">
       Join
     </CallToAction>
   </Nav>
