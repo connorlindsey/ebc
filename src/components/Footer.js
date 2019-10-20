@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components"
 
 const StyledFooter = styled.footer`
-  background-color: ${props => props.theme.grey["900"]};
+  background-color: ${props => props.theme.grey["800"]};
   color: #FFF;
   padding: 1.5rem 1rem 1rem;
   text-align: center;

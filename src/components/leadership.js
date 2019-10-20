@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import React from "react"
 import styled from "styled-components"
 
 const Section = styled.section`
@@ -7,12 +6,12 @@ const Section = styled.section`
   color: #fff;
   padding: 3rem 2rem;
   overflow: hidden;
+  text-align: center;
 `
 
 const LeadershipScrolling = styled.div`
   display: flex;
   transition: 0.1s all ease;
-  transform: translateX(${props => props.pos}px);
   width: 95%;
   margin: 1rem auto;
   max-width: 800px;
@@ -25,7 +24,7 @@ const LeadershipMember = styled.div`
   align-items: center;
   align-content: center;
   margin: 0 1rem;
-  width: 125px;
+  width: 180px;
 `
 
 const Image = styled.img`
@@ -35,58 +34,69 @@ const Image = styled.img`
   border-radius: 50%;
 `
 
-const Name = styled.div``
+const Name = styled.div`
+  font-size: 18px;
+`
 
-const Title = styled.div``
+const Title = styled.div`
+  color: ${props => props.theme.grey["400"]};
+  font-size: 16px;
+`
 
-const useLeadershipData = () => {
-  const data = useStaticQuery(
-    graphql`
-      query LeadershipQuery {
-        allLeadershipJson {
-          edges {
-            node {
-              id
-              name
-              photo
-              position
-              linkedin
-            }
-          }
-        }
-      }
-    `
-  )
-  return data.allLeadershipJson.edges
-}
+class Leadership extends React.Component {
+  animationID = null
+  startTs = null
+  width = null
+  state = {}
 
-const Leadership = () => {
-  const data = useLeadershipData()
+  componentDidMount() {
+    this.start()
+    const el = document.querySelector("#scrollingContainer")
+    this.width = el.scrollWidth
+  }
 
-  const [pos, setPos] = useState(0)
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (pos < (data.length * -125)) setPos(1)
-      setPos(pos - 1)
-    }, 10)
-    return () => clearInterval(interval)
-  }, [pos])
+  start = () => {
+    this.animationID = window.requestAnimationFrame(this.step)
+  }
 
-  return (
-    <Section id="leadership">
-      <LeadershipScrolling pos={pos}>
-        {data.map(item => (
-          <a href={item.node.linkedin} key={item.node.id}>
-            <LeadershipMember>
-              <Image src={item.node.photo} />
-              <Name>{item.node.name}</Name>
-              <Title>{item.node.position}</Title>
-            </LeadershipMember>
-          </a>
-        ))}
-      </LeadershipScrolling>
-    </Section>
-  )
+  pause = () => {
+    window.cancelAnimationFrame(this.animationID)
+    this.startTs = null
+  }
+
+  step = timestamp => {
+    if (!this.startTs) this.startTs = timestamp
+
+    const progress = timestamp - this.startTs
+    let dx = (-1 * (progress / 40)) % (this.width / 2)
+
+    this.setState({ transform: `translateX(${dx}px)` })
+    this.animationID = window.requestAnimationFrame(this.step)
+  }
+
+  render() {
+    const items = [].concat(this.props.leadership, this.props.leadership)
+
+    return (
+      <Section id="leadership">
+        <h2>Our Team</h2>
+        <LeadershipScrolling
+          style={{ transform: this.state.transform }}
+          id="scrollingContainer"
+        >
+          {items.map((item, i) => (
+            <a href={item.node.linkedin} target="_blank" rel="noopener noreferrer" key={i}>
+              <LeadershipMember>
+                <Image src={item.node.photo} />
+                <Name>{item.node.name}</Name>
+                <Title>{item.node.position}</Title>
+              </LeadershipMember>
+            </a>
+          ))}
+        </LeadershipScrolling>
+      </Section>
+    )
+  }
 }
 
 export default Leadership
