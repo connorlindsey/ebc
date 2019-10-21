@@ -30,6 +30,15 @@ collections:
       - { name: position, label: Position }
       - { name: linkedin, label: LinkedIn }
       - { name: photo, label: Photo, widget: image }
+  - name: companies
+    label: Companies
+    folder: content/companies
+    create: true
+    identifier_field: name
+    extension: json
+    fields:
+      - { name: name, label: Name }
+      - { name: photo, label: Photo, widget: image }
   - name: education
     label: Education
     folder: content/education
@@ -37,5 +46,6 @@ collections:
     fields:
       - { name: path, label: Path }
       - { name: title, label: Title }
+      - { name: photo, label: Photo, widget: image }
       - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }

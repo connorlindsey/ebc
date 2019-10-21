@@ -18,7 +18,7 @@ const BlogGrid = styled.div`
   margin: 2rem auto;
   max-width: 900px;
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 1rem;
 `
 
@@ -27,8 +27,7 @@ const usePostData = () => {
     graphql`
       query asdfPostDataQuery {
         allMarkdownRemark(
-          filter: { fileAbsolutePath: { regex: "/posts/" } }
-          sort: { fields: [frontmatter___date], order: DESC }
+          filter: { fileAbsolutePath: { regex: "/education/" } }
         ) {
           edges {
             node {
@@ -38,9 +37,9 @@ const usePostData = () => {
                 slug
               }
               frontmatter {
-                date(formatString: "MMMM DD, YYYY")
                 title
                 description
+                photo
               }
             }
           }
@@ -55,10 +54,11 @@ const Education = () => {
   const data = usePostData()
   return (
     <Section id="news">
-      <h2>Club News</h2>
+      <h2>Education Corner</h2>
       <BlogGrid>
         {data.map(item => (
           <Card width={[256, 320]} mx="auto" key={item.node.id}>
+            <img src={item.node.frontmatter.photo} alt="Stock image" />
             <Link to={`/posts${item.node.fields.slug}`}>
               <h3>{item.node.frontmatter.title}</h3>
             </Link>

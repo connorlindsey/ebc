@@ -5,8 +5,9 @@ import styled from "styled-components"
 
 const Section = styled.section`
   width: 100%;
-  background-color: ${props => props.theme.grey["100"]};
+  background-color: ${props => props.theme.grey["800"]};
   padding: 4rem 5rem;
+  color: #FFF;
 
   h2 {
     text-align: center;
@@ -19,7 +20,15 @@ const BlogGrid = styled.div`
   max-width: 900px;
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
-  grid-gap: 1rem;
+`
+
+const Title = styled.h3`
+  margin-bottom: 4px;
+`
+
+const Date = styled.p`
+  font-size: 16px;
+  color: ${props => props.theme.grey["500"]};
 `
 
 const usePostData = () => {
@@ -33,7 +42,7 @@ const usePostData = () => {
           edges {
             node {
               id
-              excerpt
+              excerpt(pruneLength: 50)
               fields {
                 slug
               }
@@ -60,9 +69,9 @@ const PostsSection = () => {
         {data.map(item => (
           <Card width={[256, 320]} mx="auto" key={item.node.id}>
             <Link to={`/posts${item.node.fields.slug}`}>
-              <h3>{item.node.frontmatter.title}</h3>
+              <Title>{item.node.frontmatter.title}</Title>
             </Link>
-            <p>{item.node.frontmatter.date}</p>
+            <Date>{item.node.frontmatter.date}</Date>
             <p>{item.node.excerpt}</p>
           </Card>
         ))}

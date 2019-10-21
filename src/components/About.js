@@ -5,9 +5,9 @@ import { Section } from "react-landing-page";
 
 const About = () => (
   <Section heading="About" bg="#F8F1E5" id="about">
-    This is the about section of the landing page.
-    <Heading textAlign="center" marginTop={20}>
-      Where we work
+    We aim to bridge the gab between engineers and businesspersons through education, networking, and community building. 
+    <Heading textAlign="center" marginTop={40}>
+      Club members have worked at: 
     </Heading>
     <Tiles width={[96, null, 128]} flexAlign="center" marginTop={20}>
       <Image src="https://theretailconnection.net/wp-content/uploads/ClientLogos/Goldman-Sachs-4c.png" />
