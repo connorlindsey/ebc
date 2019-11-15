@@ -53,7 +53,7 @@ const usePostData = () => {
 const Education = () => {
   const data = usePostData()
   return (
-    <Section id="news">
+    <Section id="learn">
       <h2>Education Corner</h2>
       <BlogGrid>
         {data.map(item => (

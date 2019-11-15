@@ -1,9 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import styled, { ThemeProvider } from "styled-components"
 import Theme from "../styles/Theme"
 
-import Nav from "../components/Nav"
+import Navbar from "../components/navbar"
 import HeroSection from "../components/Hero"
 import About from "../components/About"
 import Leadership from "../components/Leadership"
@@ -21,14 +21,16 @@ const Container = styled.div`
   }
 `
 
-const IndexPage = ({data}) => {
+const IndexPage = ({ data }) => {
   const leadership = data.allLeadershipJson.edges
+
+  const [isNavbarOpen, setNavbarOpen] = useState(false)
 
   return (
     <ThemeProvider theme={Theme}>
       <Container>
-        <Nav />
-        <HeroSection />
+        <Navbar isNavbarOpen={isNavbarOpen} setNavbarOpen={setNavbarOpen} />
+        <HeroSection setNavbarOpen={setNavbarOpen} />
         <About />
         <Leadership leadership={leadership} />
         <Education />
@@ -57,7 +59,6 @@ export const query = graphql`
 `
 
 export default IndexPage
-
 
 // import React from "react"
 // import styled from "styled-components"
