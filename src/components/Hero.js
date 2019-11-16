@@ -7,7 +7,7 @@ import { CallToAction } from "../styles/CTA"
 
 const StyledHero = styled.div`
   background-image: linear-gradient(hsla(0, 0%, 0%, 0.5), hsla(0, 0%, 0%, 0.5)),
-    url("https://images.unsplash.com/photo-1553286216-67812f595805?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60");
+    url("https://brightspotcdn.byu.edu/dims4/default/268930b/2147483647/strip/true/crop/1200x799+0+0/resize/840x559!/quality/90/?url=https%3A%2F%2Fbrightspotcdn.byu.edu%2Ffe%2Fa7%2Fbbedbcd137b1c7097307c7a6c0e8%2F1901-32-0010-2.jpg");
   object-fit: cover;
   min-height: 100vh;
   background-color: #000;
@@ -38,7 +38,7 @@ const HeroSection = ({ setNavbarOpen }) => {
   return (
     <StyledHero>
       <Heading fontSize={[5, 6, 7, 8]}>Engineers in Business</Heading>
-      <Text fontSize={[2, 3, 4, 5]}>
+      <Text fontSize={[2, 3, 4, 5]} textAlign={"center"}>
         We're here to connect the dots between engineering and business.
       </Text>
       <CallToAction
