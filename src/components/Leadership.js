@@ -1,4 +1,5 @@
 import React from "react"
+import { Heading } from "rebass"
 import styled from "styled-components"
 
 const Section = styled.section`
@@ -75,13 +76,18 @@ class Leadership extends React.Component {
 
     return (
       <Section id="leadership">
-        <h2>Our Team</h2>
+        <Heading fontSize={[5, 6, 7]}>Our Team</Heading>
         <LeadershipScrolling
-          style={{ transform: this.state.transform }}
+          style={{ transform: this.state.transform, marginTop: 30 }}
           id="scrollingContainer"
         >
           {items.map((item, i) => (
-            <a href={item.node.linkedin} target="_blank" rel="noopener noreferrer" key={i}>
+            <a
+              href={item.node.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={i}
+            >
               <LeadershipMember>
                 <Image src={item.node.photo} />
                 <Name>{item.node.name}</Name>

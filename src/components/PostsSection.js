@@ -1,13 +1,13 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import { Card } from "rebass"
+import { Card, Heading, Text } from "rebass"
 import styled from "styled-components"
 
 const Section = styled.section`
   width: 100%;
   background-color: ${props => props.theme.grey["800"]};
   padding: 4rem 5rem;
-  color: #FFF;
+  color: #fff;
 
   h2 {
     text-align: center;
@@ -19,7 +19,7 @@ const BlogGrid = styled.div`
   margin: 2rem auto;
   max-width: 900px;
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
 `
 
 const Title = styled.h3`
@@ -64,15 +64,15 @@ const PostsSection = () => {
   const data = usePostData()
   return (
     <Section id="news">
-      <h2>Club News</h2>
+      <Heading fontSize={[5, 6, 7]}>Club News</Heading>
       <BlogGrid>
         {data.map(item => (
-          <Card width={[256, 320]} mx="auto" key={item.node.id}>
+          <Card width={[200, 256, 320]} mx="auto" key={item.node.id}>
             <Link to={`/posts${item.node.fields.slug}`}>
               <Title>{item.node.frontmatter.title}</Title>
             </Link>
             <Date>{item.node.frontmatter.date}</Date>
-            <p>{item.node.excerpt}</p>
+            <Text width={220}>{item.node.excerpt}</Text>
           </Card>
         ))}
       </BlogGrid>
