@@ -38,6 +38,7 @@ const usePostData = () => {
         allMarkdownRemark(
           filter: { fileAbsolutePath: { regex: "/posts/" } }
           sort: { fields: [frontmatter___date], order: DESC }
+          limit: 4
         ) {
           edges {
             node {
@@ -69,12 +70,19 @@ const PostsSection = () => {
       </Heading>
       <BlogGrid>
         {data.map(item => (
-          <Card width={[200, 256, 320]} mx="auto" key={item.node.id}>
+          <Card
+            width={[200, 256, 320]}
+            mx="auto"
+            key={item.node.id}
+            marginBottom={30}
+          >
             <Link to={`/posts${item.node.fields.slug}`}>
               <Title>{item.node.frontmatter.title}</Title>
             </Link>
             <Date>{item.node.frontmatter.date}</Date>
-            <Text width={220}>{item.node.excerpt}</Text>
+            <Text width={220} marginTop={-20}>
+              {item.node.excerpt}
+            </Text>
           </Card>
         ))}
       </BlogGrid>
