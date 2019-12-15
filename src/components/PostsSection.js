@@ -70,20 +70,21 @@ const PostsSection = () => {
       </Heading>
       <BlogGrid>
         {data.map(item => (
-          <Card
-            width={[200, 256, 320]}
-            mx="auto"
-            key={item.node.id}
-            marginBottom={30}
-          >
-            <Link to={`/posts${item.node.fields.slug}`}>
+          <Link to={`/posts${item.node.fields.slug}`} key={item.node.id}>
+            <Card
+              width={[200, 256, 320]}
+              mx="auto"
+              key={item.node.id}
+              marginBottom={30}
+            >
               <Title>{item.node.frontmatter.title}</Title>
-            </Link>
-            <Date>{item.node.frontmatter.date}</Date>
-            <Text width={220} marginTop={-20}>
-              {item.node.excerpt}
-            </Text>
-          </Card>
+
+              <Date>{item.node.frontmatter.date}</Date>
+              <Text width={220} marginTop={-20}>
+                {item.node.excerpt}
+              </Text>
+            </Card>
+          </Link>
         ))}
       </BlogGrid>
     </Section>
