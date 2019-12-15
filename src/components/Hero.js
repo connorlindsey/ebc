@@ -12,8 +12,14 @@ const StyledHero = styled.div`
   min-height: 100vh;
   background-color: #000;
   background-attachment: fixed;
+  @media screen and (max-width: 768) {
+    background-attachment: scroll;
+  }
   background-position: center;
   background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
   display: flex;
   flex-direction: column;
