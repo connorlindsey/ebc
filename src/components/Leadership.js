@@ -76,7 +76,9 @@ class Leadership extends React.Component {
 
     return (
       <Section id="leadership">
-        <Heading fontSize={[5, 6, 7]}>Our Team</Heading>
+        <Heading fontSize={[5, 6, 7]} marginTop={-30}>
+          Our Team
+        </Heading>
         <LeadershipScrolling
           style={{ transform: this.state.transform, marginTop: 30 }}
           id="scrollingContainer"

@@ -5,7 +5,9 @@ import { Section } from "react-landing-page"
 
 const About = () => (
   <Section bg="#F8F1E5" id="about">
-    <Heading fontSize={[5, 6, 7]}>About</Heading>
+    <Heading fontSize={[5, 6, 7]} marginTop={-75}>
+      About
+    </Heading>
     <Text fontSize={[2, 3, 4]}>
       We aim to bridge the gap between engineers and business people through
       education, networking, and community building.

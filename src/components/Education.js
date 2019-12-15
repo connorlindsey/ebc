@@ -64,7 +64,9 @@ const Education = () => {
   const data = usePostData()
   return (
     <Section id="learn">
-      <Heading fontSize={[5, 6, 7]}>Education Corner</Heading>
+      <Heading fontSize={[5, 6, 7]} marginTop={-45}>
+        Education Corner
+      </Heading>
       <BlogGrid>
         {data.map(item => (
           <Card width={[200, 256, 320]} mx="auto" key={item.node.id}>
