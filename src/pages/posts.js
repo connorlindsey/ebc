@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import { rhythm } from "../utils/typography"
 import Button from "../components/button"
 
-class Education extends React.Component {
+class Posts extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -48,7 +48,7 @@ class Education extends React.Component {
   }
 }
 
-export default Education
+export default Posts
 
 export const pageQuery = graphql`
   query {
@@ -58,9 +58,9 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-        filter: { fileAbsolutePath: {regex: "/posts/"}}
-        sort: { fields: [frontmatter___date], order: DESC }
-      ) {
+      filter: { fileAbsolutePath: { regex: "/posts/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           excerpt
@@ -74,6 +74,6 @@ export const pageQuery = graphql`
           }
         }
       }
-    } 
+    }
   }
 `

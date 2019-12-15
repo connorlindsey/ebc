@@ -38,6 +38,7 @@ const usePostData = () => {
       query asdfPostDataQuery {
         allMarkdownRemark(
           filter: { fileAbsolutePath: { regex: "/education/" } }
+          limit: 6
         ) {
           edges {
             node {
@@ -71,7 +72,7 @@ const Education = () => {
         {data.map(item => (
           <Card width={[200, 256, 320]} mx="auto" key={item.node.id}>
             <img src={item.node.frontmatter.photo} alt="Education Background" />
-            <Link to={`/posts${item.node.fields.slug}`}>
+            <Link to={`/education${item.node.fields.slug}`}>
               <h3>{item.node.frontmatter.title}</h3>
             </Link>
             <p>{item.node.frontmatter.date}</p>
