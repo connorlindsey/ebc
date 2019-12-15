@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { graphql } from "gatsby"
 import styled, { ThemeProvider } from "styled-components"
 import Theme from "../styles/Theme"
+import { Element } from "react-scroll"
 
 import Navbar from "../components/navbar"
 import HeroSection from "../components/Hero"
@@ -31,11 +32,21 @@ const IndexPage = ({ data }) => {
       <Container>
         <Navbar isNavbarOpen={isNavbarOpen} setNavbarOpen={setNavbarOpen} />
         <HeroSection setNavbarOpen={setNavbarOpen} />
-        <About />
-        <Leadership leadership={leadership} />
-        <Education />
-        <PostsSection />
-        <Calendar />
+        <Element name="about">
+          <About />
+        </Element>
+        <Element name="leadership">
+          <Leadership leadership={leadership} />
+        </Element>
+        <Element name="learn">
+          <Education />
+        </Element>
+        <Element name="news">
+          <PostsSection />
+        </Element>
+        <Element name="events">
+          <Calendar />
+        </Element>
         <Footer />
       </Container>
     </ThemeProvider>

@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { useSpring, animated, config } from "react-spring"
+import { scroller } from "react-scroll"
 
 import Brand from "./Brand"
 import BurgerMenu from "./BurgerMenu"
@@ -21,17 +22,25 @@ const Navbar = ({ isNavbarOpen, setNavbarOpen }) => {
     config: config.wobbly,
   })
 
+  const ScrollToSection = section => {
+    scroller.scrollTo(section, {
+      duration: 1250,
+      delay: 100,
+      smooth: true,
+    })
+  }
+
   return (
     <>
       <NavBar style={barAnimation}>
         <FlexContainer>
           <Brand />
           <NavLinks style={linkAnimation}>
-            <a href="#about">About</a>
-            <a href="#leadership">Leadership</a>
-            <a href="#learn">Learn</a>
-            <a href="#news">News</a>
-            <a href="#events">Events</a>
+            <a onClick={() => ScrollToSection("about")}>About</a>
+            <a onClick={() => ScrollToSection("leadership")}>Leadership</a>
+            <a onClick={() => ScrollToSection("learn")}>Learn</a>
+            <a onClick={() => ScrollToSection("news")}>News</a>
+            <a onClick={() => ScrollToSection("events")}>Events</a>
             <CallToAction
               href="https://clubs.byu.edu/clubs#/embc"
               target="_blank"
