@@ -35,9 +35,10 @@ const BlogGrid = styled.div`
 const usePostData = () => {
   const data = useStaticQuery(
     graphql`
-      query asdfPostDataQuery {
+      query EducationDataQuery {
         allMarkdownRemark(
           filter: { fileAbsolutePath: { regex: "/education/" } }
+          limit: 6
         ) {
           edges {
             node {
@@ -64,17 +65,22 @@ const Education = () => {
   const data = usePostData()
   return (
     <Section id="learn">
-      <Heading fontSize={[5, 6, 7]}>Education Corner</Heading>
+      <Heading fontSize={[5, 6, 7]} marginTop={-45}>
+        Education Corner
+      </Heading>
       <BlogGrid>
         {data.map(item => (
-          <Card width={[200, 256, 320]} mx="auto" key={item.node.id}>
-            <img src={item.node.frontmatter.photo} alt="Education Background" />
-            <Link to={`/posts${item.node.fields.slug}`}>
+          <Link to={`/education${item.node.fields.slug}`} key={item.node.id}>
+            <Card width={[200, 256, 320]} mx="auto">
+              <img
+                src={item.node.frontmatter.photo}
+                alt="Education Background"
+              />
               <h3>{item.node.frontmatter.title}</h3>
-            </Link>
-            <p>{item.node.frontmatter.date}</p>
-            <Text width={220}>{item.node.excerpt}</Text>
-          </Card>
+              <p>{item.node.frontmatter.date}</p>
+              <Text width={220}>{item.node.excerpt}</Text>
+            </Card>
+          </Link>
         ))}
       </BlogGrid>
     </Section>

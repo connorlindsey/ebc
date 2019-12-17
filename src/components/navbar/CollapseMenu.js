@@ -2,11 +2,20 @@ import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { useSpring, animated } from "react-spring"
+import { scroller } from "react-scroll"
 
 import { CallToAction } from "../../styles/CTA"
 
 const CollapseMenu = ({ isNavbarOpen, setNavbarOpen }) => {
   const { open } = useSpring({ open: isNavbarOpen ? 0 : 1 })
+
+  const ScrollToSection = section => {
+    scroller.scrollTo(section, {
+      duration: 1250,
+      delay: 100,
+      smooth: true,
+    })
+  }
 
   if (isNavbarOpen === true) {
     return (
@@ -22,27 +31,52 @@ const CollapseMenu = ({ isNavbarOpen, setNavbarOpen }) => {
       >
         <NavLinks>
           <li>
-            <a href="#about" onClick={() => setNavbarOpen(!isNavbarOpen)}>
+            <a
+              onClick={() => {
+                setNavbarOpen(!isNavbarOpen)
+                ScrollToSection("about")
+              }}
+            >
               About
             </a>
           </li>
           <li>
-            <a href="#leadership" onClick={() => setNavbarOpen(!isNavbarOpen)}>
+            <a
+              onClick={() => {
+                setNavbarOpen(!isNavbarOpen)
+                ScrollToSection("leadership")
+              }}
+            >
               Leadership
             </a>
           </li>
           <li>
-            <a href="#learn" onClick={() => setNavbarOpen(!isNavbarOpen)}>
+            <a
+              onClick={() => {
+                setNavbarOpen(!isNavbarOpen)
+                ScrollToSection("learn")
+              }}
+            >
               Learn
             </a>
           </li>
           <li>
-            <a href="#news" onClick={() => setNavbarOpen(!isNavbarOpen)}>
+            <a
+              onClick={() => {
+                setNavbarOpen(!isNavbarOpen)
+                ScrollToSection("news")
+              }}
+            >
               News
             </a>
           </li>
           <li>
-            <a href="#events" onClick={() => setNavbarOpen(!isNavbarOpen)}>
+            <a
+              onClick={() => {
+                setNavbarOpen(!isNavbarOpen)
+                ScrollToSection("events")
+              }}
+            >
               Events
             </a>
           </li>

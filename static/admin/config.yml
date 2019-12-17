@@ -25,7 +25,7 @@ collections:
     create: true
     identifier_field: name
     extension: json
-    fields: 
+    fields:
       - { name: name, label: Name }
       - { name: position, label: Position }
       - { name: linkedin, label: LinkedIn }
@@ -38,6 +38,7 @@ collections:
     extension: json
     fields:
       - { name: name, label: Name }
+      - { name: url, label: url }
       - { name: photo, label: Photo, widget: image }
   - name: education
     label: Education

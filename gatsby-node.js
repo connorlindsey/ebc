@@ -65,11 +65,11 @@ exports.createPages = ({ graphql, actions }) => {
     const articles = result.data.articles.edges
     articles.forEach(article => {
       createPage({
-        path: `${article.node.fields.slug}`,
+        path: `education${article.node.fields.slug}`,
         component: articleTemplate,
         context: {
-          slug: article.node.fields.slug
-        }
+          slug: article.node.fields.slug,
+        },
       })
     })
 

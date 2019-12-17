@@ -15,7 +15,7 @@ const Section = styled.section`
 function Calendar() {
   return (
     <Section id="events">
-      <Heading marginBottom={30} fontSize={[5, 6, 7]}>
+      <Heading marginBottom={30} fontSize={[5, 6, 7]} marginTop={-10}>
         Events
       </Heading>
       <iframe
