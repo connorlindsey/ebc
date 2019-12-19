@@ -24,6 +24,7 @@ const Container = styled.div`
 
 const IndexPage = ({ data }) => {
   const leadership = data.allLeadershipJson.edges
+  const companies = data.allCompaniesJson.edges
 
   const [isNavbarOpen, setNavbarOpen] = useState(false)
 
@@ -33,7 +34,7 @@ const IndexPage = ({ data }) => {
         <Navbar isNavbarOpen={isNavbarOpen} setNavbarOpen={setNavbarOpen} />
         <HeroSection setNavbarOpen={setNavbarOpen} />
         <Element name="about">
-          <About />
+          <About companies={companies} />
         </Element>
         <Element name="leadership">
           <Leadership leadership={leadership} />
@@ -54,7 +55,7 @@ const IndexPage = ({ data }) => {
 }
 
 export const query = graphql`
-  query LeadershipQuery {
+  query HomePageQuery {
     allLeadershipJson {
       edges {
         node {
@@ -66,6 +67,15 @@ export const query = graphql`
         }
       }
     }
+    allCompaniesJson {
+          edges {
+            node {
+              name
+              photo
+              url
+            }
+          }
+        }
   }
 `
 

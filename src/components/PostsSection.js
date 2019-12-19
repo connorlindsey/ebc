@@ -65,7 +65,7 @@ const PostsSection = () => {
   const data = usePostData()
   return (
     <Section id="news">
-      <Heading fontSize={[5, 6, 7]} marginTop={-45}>
+      <Heading fontSize={[5, 6, 6]}>
         Club News
       </Heading>
       <BlogGrid>
