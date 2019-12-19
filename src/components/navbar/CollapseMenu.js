@@ -126,16 +126,19 @@ const NavLinks = styled.ul`
   }
 
   & a {
-    font-size: 1.4rem;
-    line-height: 2;
+    font-size: 1.2rem;
     color: #dfe6e9;
     text-transform: uppercase;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    margin: 0 1.5rem;
+    transition: all 300ms linear 0s;
     text-decoration: none;
     cursor: pointer;
 
     &:hover {
-      color: #fdcb6e;
-      border-bottom: 1px solid #fdcb6e;
+      color: ${props => props.theme.primary["300"]};
+      border-bottom: 1px solid ${props => props.theme.primary["300"]};
     }
   }
 `

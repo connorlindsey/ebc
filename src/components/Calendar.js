@@ -10,6 +10,11 @@ const Section = styled.section`
   align-items: center;
   padding: 2rem;
   background-color: #fff;
+
+  iframe {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
 `
 
 function Calendar() {

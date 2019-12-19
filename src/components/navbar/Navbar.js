@@ -36,16 +36,25 @@ const Navbar = ({ isNavbarOpen, setNavbarOpen }) => {
         <FlexContainer>
           <Brand />
           <NavLinks style={linkAnimation}>
-            <a onClick={() => ScrollToSection("about")}>About</a>
-            <a onClick={() => ScrollToSection("leadership")}>Leadership</a>
-            <a onClick={() => ScrollToSection("learn")}>Learn</a>
-            <a onClick={() => ScrollToSection("news")}>News</a>
-            <a onClick={() => ScrollToSection("events")}>Events</a>
-            <CallToAction
-              href="https://clubs.byu.edu/clubs#/embc"
-              target="_blank"
-            >
-              Join
+            <a href="#about" onClick={() => ScrollToSection("about")}>
+              About
+            </a>
+            <a href="#leadership" onClick={() => ScrollToSection("leadership")}>
+              Leadership
+            </a>
+            <a href="#learn" onClick={() => ScrollToSection("learn")}>
+              Learn
+            </a>
+            <a href="#news" onClick={() => ScrollToSection("news")}>
+              News
+            </a>
+            <a href="#events" onClick={() => ScrollToSection("events")}>
+              Events
+            </a>
+            <CallToAction>
+              <a href="https://clubs.byu.edu/clubs#/embc" target="_blank">
+                Join
+              </a>
             </CallToAction>
           </NavLinks>
           <BurgerWrapper>
@@ -85,6 +94,8 @@ const FlexContainer = styled.div`
   margin: auto;
   padding: 0 2rem;
   justify-content: space-between;
+  align-items: center;
+  align-content: center;
   height: 5rem;
 `
 
@@ -93,8 +104,10 @@ const NavLinks = styled(animated.ul)`
   list-style-type: none;
   margin: auto 0;
   display: flex;
+  align-items: center;
 
-  & a {
+  & > a {
+    font-size: 1.2rem;
     color: #dfe6e9;
     text-transform: uppercase;
     font-weight: 600;
@@ -105,10 +118,12 @@ const NavLinks = styled(animated.ul)`
     cursor: pointer;
 
     &:hover {
-      color: #fdcb6e;
-      border-bottom: 1px solid #fdcb6e;
+      color: ${props => props.theme.primary["300"]};
+      border-bottom: 1px solid ${props => props.theme.primary["300"]};
     }
+  }
 
+  & > * {
     @media (max-width: 1040px) {
       display: none;
     }
