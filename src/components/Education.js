@@ -65,9 +65,7 @@ const Education = () => {
   const data = usePostData()
   return (
     <Section id="learn">
-      <Heading fontSize={[5, 6, 7]} marginTop={-45}>
-        Education Corner
-      </Heading>
+      <Heading fontSize={[5, 6, 6]}>Education Corner</Heading>
       <BlogGrid>
         {data.map(item => (
           <Link to={`/education${item.node.fields.slug}`} key={item.node.id}>

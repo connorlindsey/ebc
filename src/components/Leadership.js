@@ -5,7 +5,7 @@ import styled from "styled-components"
 const Section = styled.section`
   background-color: ${props => props.theme.grey["800"]};
   color: #fff;
-  padding: 3rem 0rem;
+  padding: 6rem 0rem;
   overflow: hidden;
   text-align: center;
 `
@@ -21,12 +21,12 @@ const LeadershipMember = styled.div`
   align-items: center;
   align-content: center;
   margin: 0 1rem;
-  width: 180px;
+  width: 200px;
 `
 
 const Image = styled.img`
-  height: 100px;
-  width: 100px;
+  height: 120px;
+  width: 120px;
   object-fit: cover;
   border-radius: 50%;
 `
@@ -44,7 +44,9 @@ class Leadership extends React.Component {
   animationID = null
   startTs = null
   width = null
-  state = {}
+  state = {
+    transform: `translateX(0px)`,
+  }
 
   componentDidMount() {
     this.start()
@@ -76,11 +78,11 @@ class Leadership extends React.Component {
 
     return (
       <Section id="leadership">
-        <Heading fontSize={[5, 6, 7]} marginTop={-30}>
+        <Heading fontSize={[5, 6, 6]} marginTop={-30}>
           Our Team
         </Heading>
         <LeadershipScrolling
-          style={{ transform: this.state.transform, marginTop: 30 }}
+          style={{ transform: this.state.transform, marginTop: "30px" }}
           id="scrollingContainer"
         >
           {items.map((item, i) => (
